@@ -14,6 +14,15 @@
 //首页
 Route::get('/', 'PagesController@root')->name('root');
 
+//用户资源路由
+Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
+
+/**
+ * Route::get('/users/{user}', 'UsersController@show')->name('users.show');
+Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
+Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
+ */
+
 //用户认证路由  
 //Auth::routes();
 
