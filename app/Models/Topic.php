@@ -6,6 +6,16 @@ class Topic extends Model
 {
     protected $fillable = ['title', 'body', 'category_id', 'excerpt', 'slug'];
 
+    /**
+     * [link 生成详细信息链接]
+     * @param  array  $params [附加url参数设定]
+     * @return [type]         [description]
+     */
+    public function link($params = [])
+    {
+        return route('topics.show', array_merge([$this->id, $this->slug], $params));
+    }
+
     //关联分类
     public function category()
     {
