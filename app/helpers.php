@@ -5,3 +5,9 @@ function route_class()
 {
     return str_replace('.', '-', Route::currentRouteName());
 }
+
+//通过判断『路由命名』和『路由参数』为导航栏添加 active 类
+function category_nav_active($category_id)
+{
+    return active_class((if_route('categories.show') && if_route_param('category', $category_id)));
+}
