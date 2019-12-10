@@ -24,6 +24,7 @@ class TopicsController extends Controller
 		return view('topics.index', compact('topics'));
 	}
 
+	//显示详细信息
     public function show(Topic $topic)
     {
         return view('topics.show', compact('topic'));
@@ -66,6 +67,7 @@ class TopicsController extends Controller
 		return redirect()->route('topics.show', $topic->id)->with('message', 'Updated successfully.');
 	}
 
+	//处理删除请求
 	public function destroy(Topic $topic)
 	{
 		$this->authorize('destroy', $topic);
