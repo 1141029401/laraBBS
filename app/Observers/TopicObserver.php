@@ -12,10 +12,16 @@ class TopicObserver
     public function creating(Topic $topic)
     {
         //
+        //echo "观测器测试"; die;
     }
 
     public function updating(Topic $topic)
     {
         //
     }
+
+    public function saving(Topic $topic){
+    	$topic->excerpt = make_excerpt($topic->body);
+    }
+    
 }
