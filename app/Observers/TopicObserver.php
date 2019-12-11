@@ -25,6 +25,7 @@ class TopicObserver
         //防止XSS攻击
         $topic->body = clean($topic->body, 'user_topic_body');
 
+        //获取内容摘要
     	$topic->excerpt = make_excerpt($topic->body);
 
     }

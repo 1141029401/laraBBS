@@ -28,6 +28,12 @@ class Topic extends Model
         return $this->belongsTo(User::class);
     }
 
+    //关联回复  一多读
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
     public function scopeWithOrder($query, $order)
     {
         // 不同的排序，使用不同的数据读取逻辑

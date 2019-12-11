@@ -49,7 +49,7 @@ class TopicsController extends Controller
 		$topic->fill($request->all());
 		//写入当前用户id
 		$topic->user_id = Auth::id();
-		//写入数据库
+		//写入数据库  save()方法执行会分发队列任务
 		$topic->save();
 
 		return redirect()->to($topic->link())->with('message', 'Created successfully.');

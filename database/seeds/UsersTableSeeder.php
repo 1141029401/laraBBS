@@ -47,6 +47,7 @@ class UsersTableSeeder extends Seeder
         $user->name = 'Summer';
         $user->email = 'summer@example.com';
         $user->avatar = 'https://cdn.learnku.com/uploads/images/201710/14/1/ZqM7iaP4CR.png';
+        $user->password = bcrypt("12345678"); 
         $user->save();
     }
 }
