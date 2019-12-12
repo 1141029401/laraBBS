@@ -27,6 +27,7 @@ class TopicsController extends Controller
 	//显示详细信息
     public function show(Topic $topic, Request $request)
     {
+
     	// URL 矫正
         if ( ! empty($topic->slug) && $topic->slug != $request->slug) {
             return redirect($topic->link(), 301);
