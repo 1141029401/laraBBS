@@ -21,13 +21,14 @@ class ReplyObserver
         //
     }
 
+    public function deleted(Reply $reply)
+    {
+        $reply->topic->updateReplyCount();
+    }
 
     public function created(Reply $reply)
     {   
-        //统计总回复的数量
-        $reply->topic->reply_count = $reply->topic->replies->count();
-        //写入数据库
-        $reply->topic->save();
+        $reply->topic->updateReplyCount();
 
         // 通知话题作者有新的评论
         $reply->topic->user->notify(new TopicReplied($reply));
