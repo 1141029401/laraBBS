@@ -34,6 +34,8 @@ class UsersTableSeeder extends Seeder
         {
             // 从头像数组中随机取出一个并赋值
             $user->avatar = $faker->randomElement($avatars);
+            //密码统一设为 12345678
+            $user->password = bcrypt("12345678"); 
         });
 
         // 让隐藏字段可见，并将数据集合转换为数组
@@ -48,7 +50,6 @@ class UsersTableSeeder extends Seeder
         $user1->assignRole("Founder");
         $user1->name = "萌萌哒";
         $user1->email = "1141029401@qq.com";
-        $user1->password = bcrypt("12345678");
         $user1->save();
 
         // 单独处理第二个用户的数据
@@ -59,7 +60,6 @@ class UsersTableSeeder extends Seeder
         $user->name = 'Summer';
         $user->email = 'summer@example.com';
         $user->avatar = 'https://cdn.learnku.com/uploads/images/201710/14/1/ZqM7iaP4CR.png';
-        $user->password = bcrypt("12345678"); 
         $user->save();
 
 
